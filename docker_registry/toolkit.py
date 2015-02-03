@@ -119,7 +119,7 @@ def response(data=None, code=200, headers=None, raw=False):
 
 
 def validate_parent_access(parent_id):
-    if cfg.standalone:
+    if cfg.disable_token_auth is True or cfg.standalone is True:
         return True
     auth = _parse_auth_header()
     if not auth:
